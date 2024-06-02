@@ -1,0 +1,60 @@
+/* HEADER STYLES */
+.header {
+    width: 100%;
+    background-color: #3ea7a7;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: var(--font-semi-bold);
+    text-decoration: none;
+}
+
+.header__nav {
+    display: flex;
+}
+
+.header__list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.header__list li a {
+    color: #fff;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    transition: color 0.3s;
+    pointer-events: auto; /* Linklerin tıklanabilir olmasını sağlar */
+}
+
+@media screen and (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+    }
+
+    .header__nav {
+        margin-top: 1rem;
+    }
+}
+
+.container {
+    margin-top: 80px;
+}

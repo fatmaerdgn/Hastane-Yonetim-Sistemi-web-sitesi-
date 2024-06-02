@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\bootstrap.css" />
+    <None Include="wwwroot\css\font-awesome.min.css" />
+    <None Include="wwwroot\css\giris_ekranlari.css" />
+    <None Include="wwwroot\css\header.css" />
+    <None Include="wwwroot\css\hesap_olusturma.css" />
+    <None Include="wwwroot\css\personel_ekranı.css" />
+    <None Include="wwwroot\css\randevu.css" />
+    <None Include="wwwroot\css\randevularıma_bak.css" />
+    <None Include="wwwroot\css\randevu_al.css" />
+    <None Include="wwwroot\css\randevu_iptal.css" />
+    <None Include="wwwroot\css\responsive.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\css\style.css.map" />
+    <None Include="wwwroot\css\style.scss" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\images\about-img.jpg" />
+    <None Include="wwwroot\images\client.jpg" />
+    <None Include="wwwroot\images\d1.jpg" />
+    <None Include="wwwroot\images\d2.jpg" />
+    <None Include="wwwroot\images\d3.jpg" />
+    <None Include="wwwroot\images\doktor.icon.png" />
+    <None Include="wwwroot\images\doktor.iconn.webp" />
+    <None Include="wwwroot\images\dünya-doktorlar-günü.jpeg" />
+    <None Include="wwwroot\images\favicon.png" />
+    <None Include="wwwroot\images\hasta.icon.webp" />
+    <None Include="wwwroot\images\hero-bg.png" />
+    <None Include="wwwroot\images\hero-bg_2.png" />
+    <None Include="wwwroot\images\personel.icon.png" />
+    <None Include="wwwroot\images\personel.iconn.webp" />
+    <None Include="wwwroot\images\s1.png" />
+    <None Include="wwwroot\images\s2.png" />
+    <None Include="wwwroot\images\s3.png" />
+    <None Include="wwwroot\images\s4.png" />
+    <None Include="wwwroot\images\t1.jpg" />
+    <None Include="wwwroot\images\t2.jpg" />
+    <None Include="wwwroot\images\t3.jpg" />
+    <None Include="wwwroot\images\t4.jpg" />
+    <None Include="wwwroot\js\ameliyat.js" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\giriş_ekranlari.js" />
+    <None Include="wwwroot\js\hesap_oluşturma.js" />
+    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\js\jspdf.min.js" />
+    <None Include="wwwroot\js\randevularıma_bak.js" />
+    <None Include="wwwroot\js\randevu_al.js" />
+    <None Include="wwwroot\js\randevu_iptal.js" />
+    <None Include="wwwroot\js\reçete_oluştur.js" />
+    <None Include="wwwroot\js\sevk_kaydı_oluştur.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.29" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ameliyat Tarihi Belirleme</title>
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/randevu_al.css" asp-append-version="true">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="index.html">meditech</a>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="contact.html">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="randevu__content">
+            <img src="images/hero-bg_2.png" alt="randevu image" class="randevu__img">
+                <form action="#" class="randevu__form">
+                    <div>
+                        <h1 class="randevu__title">
+                            <span>Ameliyat Tarihi</span> Al
+                        </h1>
+                    </div>
+                    <div class="randevu__inputs">
+                        <div class="form-group">
+                            <div class="form-item">
+                                <label for="patientName">Hasta Adı:</label>
+                                <input class="randevu__input" type="text" id="patientName" name="patientName" required>
+                            </div>
+                            <div class="form-item">
+                                <label for="patientID">T.C. Kimlik Numarası:</label>
+                                <input class="randevu__input" type="text" id="patientID" name="patientID" required>
+                            </div>
+                            <div class="form-item">
+                                <label for="surgeryDate">Ameliyat Tarihi:</label>
+                                <input class="randevu__input" type="date" id="surgeryDate" name="surgeryDate" required>
+                            </div>
+                            <div class="form-item">
+                                <label for="surgeryTime">Ameliyat Saati:</label>
+                                <input class="randevu__input" type="time" id="surgeryTime" name="surgeryTime" required>
+                            </div>
+                            <div class="form-item">
+                                <label for="doctorName">Doktor Adı:</label>
+                                <input class="randevu__input" type="text" id="doctorName" name="doctorName" required>
+                            </div>
+                    </div>
+                    
+                    <button class="randevu__button" type="button" id="btn-save">Kaydet</button>
+                    </div>
+                    <div>
+                        <h1 class="randevu__title">
+                            <span>Kayıtlı</span> Ameliyatlar
+                        </h1>
+                    </div>
+                    <div class="randevu__inputs">
+                        <div class="form-group">
+                            <div class="form-item">
+                                <ul id="surgeryList"></ul>
+                            </div>                   
+                        </div>
+                    </div> 
+                </form>       
+        </div>            
+    </div>
+    
+    <script src="~/js/ameliyat.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlaç Reçetesi Oluştur</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/randevu_al.css">
+    <script src="js/jspdf.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="index.html">meditech</a>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="contact.html">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="randevu__content">
+            <img src="images/hero-bg_2.png" alt="randevu image" class="randevu__img">
+            <form action="#" class="randevu__form">
+                <div>
+                    <h1 class="randevu__title">
+                        <span>Reçete</span> Oluştur
+                    </h1>
+                </div>
+                <div class="randevu__inputs">
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label for="patientName">Hasta Adı:</label>
+                            <input class="randevu__input" type="text" id="patientName" name="patientName">
+                        </div>
+                        <div class="form-item">
+                            <label for="patientID">T.C. Kimlik Numarası:</label>
+                            <input class="randevu__input" type="text" id="patientID" name="patientID">                                        
+                        </div>                    
+                </div>
+
+                <div class="form-group">
+                    <div class="form-item">
+                        <label for="dosage">İlaçlar:</label>
+                        <textarea class="randevu__input" id="medications" name="medications" rows="4"></textarea>
+                    </div>
+                    <div class="form-item">
+                        <label for="dosage">Dozaj Bilgisi:</label>
+                        <textarea class="randevu__input" id="dosage" name="dosage" rows="4"></textarea>
+                    </div>
+                </div>
+                <button id="btn-print" class="randevu__button">Reçete Yazdır</button>
+            </form>
+        </div>
+</div>
+    <script src="js/reçete_oluştur.js" charset="utf-8"></script>
+</body>
+</html>

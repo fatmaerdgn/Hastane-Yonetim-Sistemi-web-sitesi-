@@ -1,0 +1,240 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,200&display=swap');
+
+/* VARIABLE CSS */
+:root {
+    --first-color: hsl(244, 75%, 57%);
+    --second-color: hsl(249, 64%, 47%);
+    --title-color: hsl(244, 12%, 12%);
+    --text-color: hsl(244, 4%, 36%);
+    --body-color: hsl(208, 97%, 85%);
+    --body-font: "Poppins", sans-serif;
+    --h2-font-size: 1.25rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --h2-font-size: 1.75rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+    color: var(--text-color);
+}
+
+input,
+button {
+    font-family: var(--body-font);
+    border: none;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* RANDEVU FORM */
+.randevu__content, .randevu__form, .randevu__inputs {
+    display: grid;
+}
+
+.randevu__content {
+    position: relative;
+    height: 100vh;
+    align-items: center;
+}
+
+.randevu__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.randevu__form {
+    position: relative;
+    background-color: hsla(244, 16%, 92%, 0.6);
+    border: 2px solid hsla(244, 16%, 92%, 0.75);
+    margin-inline: 1.5rem;
+    row-gap: 1.25rem;
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.randevu__title {
+    color: var(--title-color);
+    font-size: var(--h2-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.randevu__title span {
+    color: var(--first-color);
+}
+
+.randevu__inputs {
+    row-gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.randevu__label {
+    display: block;
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    margin-bottom: 0.25rem;
+}
+
+.randevu__input {
+    width: 100%;
+    padding: 14px 12px;
+    border-radius: 6px;
+    border: 2px solid var(--text-color);
+    background-color: hsla(244, 16%, 92%, 0.6);
+    color: var(--title-color);
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-medium);
+    transition: border 0.4s;
+}
+
+.randevu__input::placeholder {
+    color: var(--text-color);
+}
+
+.randevu__input:focus, .randevu__input:valid {
+    border: 2px solid var(--first-color);
+}
+
+.randevu__buttons {
+    display: flex;
+    column-gap: 0.75rem;
+}
+
+.randevu__button {
+    width: 100%;
+    padding: 14px 2rem;
+    border-radius: 6px;
+    background: linear-gradient(180deg, var(--first-color), var(--second-color));
+    color: #fff;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    box-shadow: 0 6px 24px hsla(244, 75%, 48%, 0.5);
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+/* BREAKPOINTS */
+@media screen and (max-width: 360px) {
+    .randevu__buttons {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .randevu__form {
+        width: 450px;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 1064px) {
+    .container {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    .randevu__content {
+        width: 1024px;
+        height: 600px;
+    }
+    .randevu__img {
+      border-radius: 3.5rem;
+      box-shadow: 0 24px 48px hsla(244, 75%, 36%, 0.45);
+    }
+    .randevu__form{
+    justify-self: flex-end;
+      margin-right: 4.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .randevu__content {
+      height: 700px;
+    }
+    .randevu__form {
+      row-gap: 2rem;
+      padding: 3rem;
+      border-radius: 1.25rem;
+      border: 2.5px solid hsla(244, 16%, 92%, 0.75);
+    }
+    .randevu__description, .randevu__label, .randevu__button {
+      font-size: var(--normal-font-size);
+    }
+    .randevu__inputs {
+      row-gap: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .randevu__input {
+      border: 2.5px solid var(--text-color);
+      padding: 1rem;
+      font-size: var(--small-font-size);
+    }
+    .randevu__input:focus, .randevu__input:valid {
+      border: 2.5px solid var(--first-color);
+    }
+    .randevu__button {
+      padding-block: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .randevu__button-ghost {
+      border: 2.5px solid var(--first-color);
+    }
+  }
+  
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+.form-group-2{
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1rem;
+}
+.form-item {
+    display: block;
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    margin-bottom: 0.25rem;
+}
+.form-contanier-2{
+    display: flex; /* Formları yatay olarak hizalar */
+    justify-content: space-between; /* Formları eşit aralıklarla yerleştirir */
+}
+.randevu__form-2{
+    flex: 1; /* Her formun eşit genişlikte olmasını sağlar */
+    max-width: 45%; /* Formların maksimum genişliğini belirler */
+    background-color: hsla(244, 16%, 92%, 0.6);
+    border: 2px solid hsla(244, 16%, 92%, 0.75);
+    row-gap: 1.25rem;
+    backdrop-filter: blur(20px);
+    padding: 1.5rem; /* Padding değerini küçülttük */
+    border-radius: 1rem;
+}

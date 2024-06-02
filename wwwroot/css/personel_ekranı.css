@@ -1,0 +1,112 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,200&display=swap');
+
+/* VARIABLE CSS */
+:root {
+    --first-color: hsl(244, 75%, 57%);
+    --second-color: hsl(249, 64%, 47%);
+    --title-color: black;
+    --text-color: black;
+    --body-color: hsl(208, 97%, 85%);
+    --body-font: "Poppins", sans-serif;
+    --h2-font-size: 1.25rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --h2-font-size: 1.75rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+
+body {
+    background-color: var(--body-color);
+    font-family: var(--body-font);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* BREAKPOINTS */
+@media screen and (max-width: 360px) {
+    .randevu__content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .randevu__content {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .randevu__content {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.entry-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.entry-option {
+    /* flex-basis: 30%; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Butonları eşit genişlikte yerleştirir */
+    gap: 10px; /* Butonlar arasına boşluk ekler */
+    
+}
+
+.entry-option a {
+    /* display: block;
+    transition: background-color 0.3s; 
+    text-align: center;
+    background-color: #3ea7a7;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 50px;  Yatay ve dikey dolgu miktarını artırarak butonu genişletmek */
+        display: flex;
+        justify-content: center; /* Butonları yatayda ortalar */
+        align-items: center; /* Butonları dikeyde ortalar */
+        text-align: center;
+        padding: 20px;
+        background-color: #3ea7a7;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s;
+        margin: 0 10px;
+
+}
+

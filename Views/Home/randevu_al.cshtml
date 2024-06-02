@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/randevu_al.css">
+    <title>Randevu Al</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="index.html">meditech</a>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="contact.html">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="randevu__content">
+            <img src="images/hero-bg_2.png" alt="randevu image" class="randevu__img">
+            <form action="#" class="randevu__form" id="randevuForm">
+                <div>
+                    <h1 class="randevu__title">
+                        <span>Randevu</span> Al
+                    </h1>
+                </div>
+                <div class="randevu__inputs">
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label for="fullname">Tam Ad:</label>
+                            <input class="randevu__input" type="text" id="fullname" name="fullname" required placeholder="İsim - Soyisim">
+                        </div>
+                        <div class="form-item">
+                            <label for="tckn">TC Kimlik No:</label>
+                            <input class="randevu__input" type="text" id="tckn" name="tckn" required placeholder="T.C. Kimlik numaranız">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label for="email">E-posta:</label>
+                            <input class="randevu__input" type="email" id="email" name="email" required placeholder="E-Posta adresiniz">
+                        </div>
+                        <div class="form-item">
+                            <label for="phone">Telefon Numarası:</label>
+                            <input class="randevu__input" type="tel" id="phone" name="phone" required placeholder="Telefon numaranız">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label for="date">Randevu Tarihi:</label>
+                            <input class="randevu__input" type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-item">
+                            <label for="time">Randevu Saati:</label>
+                            <select class="randevu__input" id="time" name="time" required>
+                                <!-- Zaman seçenekleri JavaScript ile eklenecek -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-item">
+                            <label for="department">Poliklinik:</label>
+                            <select class="randevu__input" id="department" name="department" required>
+                                <option value="" selected disabled>Poliklinik Seçin</option>
+                                <option value="genel_cerrahi">Genel Cerrahi</option>
+                                <option value="kardiyoloji">Kardiyoloji</option>
+                                <option value="ortopedi">Ortopedi</option>
+                            </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="department">Doktor:</label>
+                            <select class="randevu__input" id="department" name="department" required>
+                                <option value="" selected disabled>Doktor Seçin</option>
+                                <option value="doktor-1">bla bla</option>
+                                <option value="doktor-2">zzz zzz</option>
+                                <option value="doktor-3">ddd ddd</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="randevu__buttons">
+                    <button class="randevu__button" type="submit">Randevu Al</button>
+                </div>
+            </form>
+        </div>
+    </div>  
+    <script src="js/randevu_al.js"></script>
+</body>
+</html>
