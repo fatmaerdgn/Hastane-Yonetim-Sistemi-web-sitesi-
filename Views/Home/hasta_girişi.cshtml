@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- REMIXICONS -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/giris_ekranlari.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="~/css/giris_ekranlari.css">
+    <link rel="stylesheet" href="~/css/header.css">
 
     <title>meditech.hasta.girisi</title>
 </head>
@@ -28,29 +28,32 @@
     </header>
     <div class="container">
         <div class="login__content">
-            <img src="images/hero-bg_2.png" alt="login image" class="login__img">
+            <img src="~/images/hero-bg_2.png" alt="login image" class="login__img">
 
-            <form action="" class="login__form">
+            <form action="/Home/HastaGirişi" method="post" class="login__form">
                 <div>
                     <h1 class="login__title">
                         <span>Hasta</span> Girişi
                     </h1>
                     <p class="login__description">
-                        
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <span style="color:red">@ViewBag.ErrorMessage</span>
+                        }
                     </p>
                 </div>
-                
+
                 <div>
                     <div class="login__inputs">
                         <div>
                             <label for="input-email" class="login__label">T.C. Kimlik Numarası</label>
-                            <input type="text" placeholder="T.C. Kimlik Numaranızı giriniz " required class="login__input" id="input-email">
+                            <input type="text" name="tcKimlikNo" placeholder="T.C. Kimlik Numaranızı giriniz" required class="login__input" id="input-email">
                         </div>
                         <div>
                             <label for="input-pass" class="login__label">Parola</label>
 
                             <div class="login__box">
-                                <input type="password" placeholder="Parolanızı giriniz" required  class="login__input" id="input-pass">
+                                <input type="password" name="password" placeholder="Parolanızı giriniz" required class="login__input" id="input-pass">
                                 <i class="ri-eye-off-line login__eye" id="input-icon"></i>
                             </div>
                         </div>
@@ -62,19 +65,21 @@
                 </div>
                 <div>
                     <div class="login__buttons">
-                        <button class="login__button">Giriş Yap</button>                       
-                        <button class="login__button login__button-ghost"> <a href="hesap_oluşturma.html" target="_blank" style="text-decoration:none; color:inherit;"> Hesap Oluştur </a><button>                      
+                        <button type="submit" class="login__button">Giriş Yap</button>
+                        <button class="login__button login__button-ghost"> <a href="~/Home/HesapOluşturma" target="_blank" style="text-decoration:none; color:inherit;"> Hesap Oluştur </a></button>
                     </div>
                     <div>
                         <br>
                         <a href="sifremi_unuttum.html" class="login__forgot">Şifremi Unuttum</a>
                     </div>
                 </div>
+                <!-- Hata mesajı için -->
+
             </form>
         </div>
     </div>
 
     <!-- MAİN JS -->
-    <script src="js/giriş_ekranlari.js"></script>
+    <script src="~/js/giriş_ekranlari.js"></script>
 </body>
 </html>

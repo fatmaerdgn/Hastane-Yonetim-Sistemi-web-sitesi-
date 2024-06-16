@@ -1,207 +1,211 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\bootstrap.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\font-awesome.min.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\giris_ekranlari.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\giris_ekranlari.css",
       "PackagePath": "staticwebassets\\css\\giris_ekranlari.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\header.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\header.css",
       "PackagePath": "staticwebassets\\css\\header.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\hesap_olusturma.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\hesap_olusturma.css",
       "PackagePath": "staticwebassets\\css\\hesap_olusturma.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\personel_ekranı.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\personel_ekranı.css",
       "PackagePath": "staticwebassets\\css\\personel_ekranı.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\randevu.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\randevu.css",
       "PackagePath": "staticwebassets\\css\\randevu.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\randevu_al.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\randevu_al.css",
       "PackagePath": "staticwebassets\\css\\randevu_al.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\randevu_iptal.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\randevu_iptal.css",
       "PackagePath": "staticwebassets\\css\\randevu_iptal.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\randevularıma_bak.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\randevularıma_bak.css",
       "PackagePath": "staticwebassets\\css\\randevularıma_bak.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\responsive.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\style.css",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\style.css.map",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\style.css.map",
       "PackagePath": "staticwebassets\\css\\style.css.map"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\css\\style.scss",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\css\\style.scss",
       "PackagePath": "staticwebassets\\css\\style.scss"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\data\\hastaneler.json",
+      "PackagePath": "staticwebassets\\data\\hastaneler.json"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\about-img.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\about-img.jpg",
       "PackagePath": "staticwebassets\\images\\about-img.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\client.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\client.jpg",
       "PackagePath": "staticwebassets\\images\\client.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\d1.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\d1.jpg",
       "PackagePath": "staticwebassets\\images\\d1.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\d2.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\d2.jpg",
       "PackagePath": "staticwebassets\\images\\d2.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\d3.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\d3.jpg",
       "PackagePath": "staticwebassets\\images\\d3.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\doktor.icon.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\doktor.icon.png",
       "PackagePath": "staticwebassets\\images\\doktor.icon.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\doktor.iconn.webp",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\doktor.iconn.webp",
       "PackagePath": "staticwebassets\\images\\doktor.iconn.webp"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\dünya-doktorlar-günü.jpeg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\dünya-doktorlar-günü.jpeg",
       "PackagePath": "staticwebassets\\images\\dünya-doktorlar-günü.jpeg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\favicon.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\favicon.png",
       "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\hasta.icon.webp",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\hasta.icon.webp",
       "PackagePath": "staticwebassets\\images\\hasta.icon.webp"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\hero-bg.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\hero-bg.png",
       "PackagePath": "staticwebassets\\images\\hero-bg.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\hero-bg_2.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\hero-bg_2.png",
       "PackagePath": "staticwebassets\\images\\hero-bg_2.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\personel.icon.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\personel.icon.png",
       "PackagePath": "staticwebassets\\images\\personel.icon.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\personel.iconn.webp",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\personel.iconn.webp",
       "PackagePath": "staticwebassets\\images\\personel.iconn.webp"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\s1.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\s1.png",
       "PackagePath": "staticwebassets\\images\\s1.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\s2.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\s2.png",
       "PackagePath": "staticwebassets\\images\\s2.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\s3.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\s3.png",
       "PackagePath": "staticwebassets\\images\\s3.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\s4.png",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\s4.png",
       "PackagePath": "staticwebassets\\images\\s4.png"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\t1.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\t1.jpg",
       "PackagePath": "staticwebassets\\images\\t1.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\t2.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\t2.jpg",
       "PackagePath": "staticwebassets\\images\\t2.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\t3.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\t3.jpg",
       "PackagePath": "staticwebassets\\images\\t3.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\images\\t4.jpg",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\images\\t4.jpg",
       "PackagePath": "staticwebassets\\images\\t4.jpg"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\ameliyat.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\ameliyat.js",
       "PackagePath": "staticwebassets\\js\\ameliyat.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\bootstrap.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\custom.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\giriş_ekranlari.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\giriş_ekranlari.js",
       "PackagePath": "staticwebassets\\js\\giriş_ekranlari.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\hesap_oluşturma.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\hesap_oluşturma.js",
       "PackagePath": "staticwebassets\\js\\hesap_oluşturma.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\jquery-3.4.1.min.js",
       "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\jspdf.min.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\jspdf.min.js",
       "PackagePath": "staticwebassets\\js\\jspdf.min.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\randevu_al.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\randevu_al.js",
       "PackagePath": "staticwebassets\\js\\randevu_al.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\randevu_iptal.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\randevu_iptal.js",
       "PackagePath": "staticwebassets\\js\\randevu_iptal.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\randevularıma_bak.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\randevularıma_bak.js",
       "PackagePath": "staticwebassets\\js\\randevularıma_bak.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\reçete_oluştur.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\reçete_oluştur.js",
       "PackagePath": "staticwebassets\\js\\reçete_oluştur.js"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\wwwroot\\js\\sevk_kaydı_oluştur.js",
+      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\js\\sevk_kaydı_oluştur.js",
       "PackagePath": "staticwebassets\\js\\sevk_kaydı_oluştur.js"
     },
     {

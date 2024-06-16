@@ -1,7 +1,9 @@
 using bitirmeMVC5.Models;
 using bitirmeMVC5.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Configuration;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +14,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add PoliklinikService
-builder.Services.AddScoped<PoliklinikService>();
 
-// Add PersonelService
+
+// Add services
+builder.Services.AddScoped<DoktorService>();
 builder.Services.AddScoped<PersonelService>();
+builder.Services.AddScoped<PoliklinikService>();
+builder.Services.AddScoped<HastaService>();
+
+builder.Services.AddScoped<AmeliyatTarihiService>();
 
 var app = builder.Build();
 
@@ -24,9 +30,10 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -43,3 +50,11 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
+
+
+
+
+
+
+

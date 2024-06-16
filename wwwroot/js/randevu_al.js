@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Simulate checking if the appointment slot is already taken
+        
         const existingAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
         const isSlotTaken = existingAppointments.some(appointment => 
             appointment.date === randevuData.date && appointment.time === randevuData.time
@@ -53,18 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Randevunuz başarıyla alındı!');
             this.reset();
         }
+        
     });
 });
-
-// Poliklinik seçeneklerini al
-var departmentSelect = document.getElementById('department');
-
-// Poliklinik seçeneklerini doldur
-var departments = ['Genel Cerrahi', 'Kardiyoloji', 'Ortopedi']; // Örnek poliklinikler
-departments.forEach(function(department) {
-    var option = document.createElement('option');
-    option.textContent = department;
-    option.value = department.toLowerCase().replace(/\s/g, '_'); // Boşlukları alt çizgi ile değiştirme
-    departmentSelect.appendChild(option);
-});
-

@@ -1,0 +1,39 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "hastaneler": [
+    {
+      "hastane_adi": "Örnek Şehir Hastanesi",
+      "il": "İstanbul",
+      "ilce": "Beşiktaş",
+      "adres": "Örnek Mahallesi, Örnek Sokak No:1",
+      "telefon": "(0212) 123 45 67"
+    },
+    {
+      "hastane_adi": "Güzel Sağlık Merkezi",
+      "il": "Ankara",
+      "ilce": "Çankaya",
+      "adres": "Güzel Caddesi, Sağlık Plaza No:2",
+      "telefon": "(0312) 987 65 43"
+    },
+    {
+      "hastane_adi": "Sevgi Hastanesi",
+      "il": "İzmir",
+      "ilce": "Karşıyaka",
+      "adres": "Sevgi Mahallesi, Sağlık Bulvarı No:3",
+      "telefon": "(0232) 654 32 10"
+    },
+    {
+      "hastane_adi": "Sağlıklı Yaşam Merkezi",
+      "il": "Bursa",
+      "ilce": "Nilüfer",
+      "adres": "Sağlıklı Cadde No:4",
+      "telefon": "(0224) 876 54 32"
+    }
+  ]
+}

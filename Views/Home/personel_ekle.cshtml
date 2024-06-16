@@ -6,8 +6,8 @@
     <!-- REMIXICONS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/hesap_olusturma.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="~/css/hesap_olusturma.css">
+    <link rel="stylesheet" href="~/css/header.css">
     <!-- Bu Başlık sadece -->
     <title>meditech.kayıt.ol</title>
 </head>
@@ -27,17 +27,17 @@
     </header>
     <div class="container">
         <div class="login__content">
-            <img src="images/hero-bg_2.png" alt="login image" class="login__img">
+            <img src="~/images/hero-bg_2.png" alt="login image" class="login__img">
 
-            <form action="" class="login__form">
+            <form action="/Home/PersonelEkle" method="post" class="login__form">
                 <div>
                     <h1 class="login__title">
                         <span>Personel</span> Ekle
                     </h1>
-                    <p class="login__description">                        
+                    <p class="login__description">
                     </p>
                 </div>
-                
+
                 <div>
                     <div class="login__inputs">
                         <div class="form-group">
@@ -84,14 +84,15 @@
                 </div>
                 <div>
                     <div class="login__buttons">
-                        <button class="login__button">Personeli Kaydet</button>                       
-                   
+                        <button class="login__button" type="submit">Personeli Kaydet</button>
                     </div>
                 </div>
             </form>
+
+
         </div>
     </div>  
     <!-- MAİN JS -->
-    <script src="js/hesap_oluşturma.js"></script>
+    <script src="~/js/hesap_oluşturma.js"></script>
 </body>
 </html>

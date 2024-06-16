@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using bitirmeMVC5.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace bitirmeMVC5.Services
 {
@@ -40,6 +41,11 @@ namespace bitirmeMVC5.Services
         public List<Poliklinik> GetAllPoliklinikler()
         {
             return _context.Poliklinikler.ToList();
+        }
+
+        public async Task<List<Poliklinik>> GetAllPolikliniklerAsync()
+        {
+            return await _context.Poliklinikler.ToListAsync();
         }
     }
 }

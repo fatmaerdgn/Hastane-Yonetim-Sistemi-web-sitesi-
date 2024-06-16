@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ynnETMpPe2YCERcO8YaAyBUw1ANOavqx4ubuQHaWmg6uWPg0YFqjCLVdWtnKyJ2aJRIHQZSIQAyuEnLlreFpw==",
+  "dgSpecHash": "8lpU7wdVFBlsfNrUtZGrY5ThFIcYLr0wDlLZcELSExUwAXAU2CVS6SJm2MOqjBuSx2QKUHuf1oV6AUJmK5nuQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\bitirmeMVC5\\bitirmeMVC5.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\bitirmeMVC5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",
@@ -30,6 +30,7 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

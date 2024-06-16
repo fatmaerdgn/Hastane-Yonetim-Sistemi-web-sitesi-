@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- REMIXICONS -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/giris_ekranlari.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="~/css/giris_ekranlari.css">
+    <link rel="stylesheet" href="~/css/header.css">
     <title>meditech.doktor.girisi</title>
 </head>
 <body>
@@ -27,53 +27,55 @@
     </header>
     <div class="container">
         <div class="login__content">
-            <img src="images/hero-bg_2.png" alt="login image" class="login__img">
+            <img src="~/images/hero-bg_2.png" alt="login image" class="login__img">
 
-            <form action="" class="login__form">
+            <form asp-controller="Home" asp-action="DoktorGiris" method="post" class="login__form">
                 <div>
                     <h1 class="login__title">
                         <span>Hekim</span> Girişi
                     </h1>
                     <p class="login__description">
-                        
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <span style="color:red">@ViewBag.ErrorMessage</span>
+                        }
                     </p>
                 </div>
-                
+
                 <div>
                     <div class="login__inputs">
                         <div>
                             <label for="input-email" class="login__label">Hekim E-Posta Adresi</label>
-                            <input type="email" placeholder="E-posta adresinizi giriniz " required class="login__input" id="input-email">
+                            <input type="email" placeholder="E-posta adresinizi giriniz " required class="login__input" id="input-email" name="email">
                         </div>
 
                         <div>
                             <label for="input-pass" class="login__label">Parola</label>
 
                             <div class="login__box">
-                                <input type="password" placeholder="Parolanızı giriniz" required class="login__input" id="input-pass">
+                                <input type="password" placeholder="Parolanızı giriniz" required class="login__input" id="input-pass" name="password">
                                 <i class="ri-eye-off-line login__eye" id="input-icon"></i>
                             </div>
                         </div>
                     </div>
 
                     <div class="login__check">
-                        <input type="checkbox" class="login__check-input" id="input-check">
+                        <input type="checkbox" class="login__check-input" id="input-check" name="rememberMe">
                         <label for="input-check" class="login__check-label">Giriş Bilgilerini Kaydet</label>
                     </div>
                 </div>
 
                 <div>
                     <div class="login__buttons">
-                        <button class="login__button">Giriş Yap</button>
+                        <button type="submit" class="login__button">Giriş Yap</button>
                         <!-- <button class="login__button login__button-ghost">Sign Up</button> -->
                     </div>
-
                     <a href="sifremi_unuttum.html" class="login__forgot">Şifremi Unuttum</a>
                 </div>
             </form>
         </div>
     </div>
     <!-- MAİN JS -->
-    <script src="js/giriş_ekranlari.js"></script>
+    <script src="~/js/giriş_ekranlari.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/randevu_al.css">
+    <link rel="stylesheet" href="~/css/header.css">
+    <link rel="stylesheet" href="~/css/randevu_al.css">
     <title>Randevu Al</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
     </header>
     <div class="container">
         <div class="randevu__content">
-            <img src="images/hero-bg_2.png" alt="randevu image" class="randevu__img">
+            <img src="~/images/hero-bg_2.png" alt="randevu image" class="randevu__img">
             <form action="#" class="randevu__form" id="randevuForm">
                 <div>
                     <h1 class="randevu__title">
@@ -69,18 +69,12 @@
                             <label for="department">Poliklinik:</label>
                             <select class="randevu__input" id="department" name="department" required>
                                 <option value="" selected disabled>Poliklinik Seçin</option>
-                                <option value="genel_cerrahi">Genel Cerrahi</option>
-                                <option value="kardiyoloji">Kardiyoloji</option>
-                                <option value="ortopedi">Ortopedi</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="department">Doktor:</label>
                             <select class="randevu__input" id="department" name="department" required>
                                 <option value="" selected disabled>Doktor Seçin</option>
-                                <option value="doktor-1">bla bla</option>
-                                <option value="doktor-2">zzz zzz</option>
-                                <option value="doktor-3">ddd ddd</option>
                             </select>
                         </div>
                     </div>
@@ -91,6 +85,6 @@
             </form>
         </div>
     </div>  
-    <script src="js/randevu_al.js"></script>
+   @*  <script src="~/js/randevu_al.js"></script> *@
 </body>
 </html>
