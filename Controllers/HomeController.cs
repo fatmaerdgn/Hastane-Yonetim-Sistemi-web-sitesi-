@@ -1,15 +1,8 @@
 ﻿using bitirmeMVC5.Models;
 using bitirmeMVC5.Services;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.IO;
-using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Diagnostics;
-using System.Linq;
 
 namespace bitirmeMVC5.Controllers
 {
@@ -23,16 +16,16 @@ namespace bitirmeMVC5.Controllers
         private readonly AmeliyatTarihiService _ameliyatTarihiService;
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService,AmeliyatTarihiService ameliyatTarihiService, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService, AmeliyatTarihiService ameliyatTarihiService, ApplicationDbContext context)
         {
             _logger = logger;
             _poliklinikService = poliklinikService;
             _personelService = personelService;
             _doktorService = doktorService;
             _hastaService = hastaService;
-            _ameliyatTarihiService=ameliyatTarihiService;
+            _ameliyatTarihiService = ameliyatTarihiService;
             _context = context;
-            
+
         }
         //HASTA HESAP OLUŞTURMA KISMIDIR
         [HttpPost]
@@ -95,7 +88,7 @@ namespace bitirmeMVC5.Controllers
                     AmeliyatTarihi = surgeryDate,
                     AmeliyatSaati = surgeryTime,
                     DoktorTamAd = doctorName,
-          
+
                 };
 
                 _ameliyatTarihiService.AddAmeliyat(ameliyat);
@@ -321,7 +314,7 @@ namespace bitirmeMVC5.Controllers
         public IActionResult SevkKaydıOluştur()
         {
             return View("sevk_kaydı_oluştur");
-        }        
+        }
 
         public IActionResult AmeliyatTarihi()
         {
@@ -375,20 +368,20 @@ namespace bitirmeMVC5.Controllers
             var poliklinikler = _poliklinikService.GetAllPoliklinikler();
             return View(poliklinikler);
         }
-        
+
         public IActionResult Doctors()
         {
             var doktorlar = _doktorService.GetAllDoktorlar();
             return View(doktorlar);
         }
-       
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+        
         public async Task<IActionResult> RandevuAl()
         {
             var poliklinikler = await _poliklinikService.GetAllPolikliniklerAsync();
@@ -396,6 +389,7 @@ namespace bitirmeMVC5.Controllers
 
             return View("randevu_al");
         }
+        
 
         [HttpPost]
         public async Task<IActionResult> RandevuAl(string fullname, string tckn, string email, string phone, DateTime date, string time, int poliklinikId, int doktorId)
@@ -421,7 +415,7 @@ namespace bitirmeMVC5.Controllers
                 // Aynı saatte ve tarihte başka bir randevu var mı kontrol edin.
 
                 // 3. Randevu Oluşturma:
-             
+
                 var yeniRandevu = new Randevular
                 {
                     TamAd = fullname,
@@ -434,6 +428,7 @@ namespace bitirmeMVC5.Controllers
 
                     DoktorTamAd = _doktorService.GetDoktorById(doktorId)?.TamAd
                 };
+                /*
 
                 var poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId);
 
@@ -446,28 +441,43 @@ namespace bitirmeMVC5.Controllers
                     // Poliklinik bulunamadı, hata mesajı döndürün veya farklı bir işlem yapın.
                     return Json(new { success = false, message = "Geçersiz poliklinik seçimi." });
                 }
+                */
 
                 // 4. Veritabanına Kaydetme:
                 _context.Randevular.Add(yeniRandevu);
                 await _context.SaveChangesAsync();
 
 
-                return Json(new { success = true, message = "Randevunuz başarıyla oluşturuldu!" });
+                return Json(new { success = true, message = "Randevunuz başarıyla oluşturuldu!"});
+                //return RedirectToAction("RandevulariListele");
+                //return Json("RandevulariListele");
+
+
             }
             catch (Exception ex)
             {
                 // 6. Hata Yönetimi:
                 _logger.LogError(ex, "Randevu alırken bir hata oluştu.");
                 return Json(new { success = false, message = "Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin." });
+                
             }
 
         }
 
+        [HttpGet]
         public async Task<IActionResult> RandevulariListele()
         {
             var randevular = await _context.Randevular.ToListAsync();
             return View("randevu_iptal", randevular);
         }
+
+        /*
+        public async Task<IActionResult> RandevulariListele()
+        {
+            var randevular =  _context.Randevular.ToListAsync();
+            return View("randevu_iptal", randevular);
+        }
+        */
 
         [HttpGet]
         public JsonResult GetDoktorlar(int poliklinikId)

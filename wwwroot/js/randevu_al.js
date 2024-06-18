@@ -41,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
             contentType: false,
             success: function (response) {
                 if (response.success) {
-                    alert('Randevunuz başarıyla alındı!');
+                    alert(response.message); // Başarı mesajını göster
                     this.reset(); // Formu temizle
+                    // Yönlendirme
+                    window.location.href = '@Url.Action("RandevulariListele", "Home")';
                 } else {
                     alert(response.message); // Hata mesajını göster
                 }
