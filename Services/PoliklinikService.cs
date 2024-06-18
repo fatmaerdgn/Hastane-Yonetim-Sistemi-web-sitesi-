@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using bitirmeMVC5.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace bitirmeMVC5.Services
@@ -46,6 +47,10 @@ namespace bitirmeMVC5.Services
         public async Task<List<Poliklinik>> GetAllPolikliniklerAsync()
         {
             return await _context.Poliklinikler.ToListAsync();
+        }
+        public Poliklinik GetPoliklinikById(int poliklinikId)
+        {
+            return _context.Poliklinikler.FirstOrDefault(p => p.ID == poliklinikId);
         }
     }
 }

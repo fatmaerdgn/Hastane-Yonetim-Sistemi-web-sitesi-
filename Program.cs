@@ -14,14 +14,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-
 // Add services
 builder.Services.AddScoped<DoktorService>();
 builder.Services.AddScoped<PersonelService>();
 builder.Services.AddScoped<PoliklinikService>();
 builder.Services.AddScoped<HastaService>();
-
 builder.Services.AddScoped<AmeliyatTarihiService>();
 
 var app = builder.Build();
@@ -32,8 +29,6 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -50,6 +45,8 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
+
 
 
 

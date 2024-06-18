@@ -15,9 +15,8 @@ namespace bitirmeMVC5.Models
         public DbSet<Personel> Personeller { get; set; }
         public DbSet<Doktor> Doktorlar { get; set; }
         public DbSet<Hasta> Hasta { get; set; }
-
         public DbSet<Ameliyat> Ameliyatlar { get; set; } // AmeliyatModel için DbSet
-
+        public DbSet<Randevular> Randevular { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,9 +43,6 @@ namespace bitirmeMVC5.Models
         {
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-0M417A5;Initial Catalog=bitirme_projesi;Integrated Security=True");
         }
-
-
-
     }
 
 }

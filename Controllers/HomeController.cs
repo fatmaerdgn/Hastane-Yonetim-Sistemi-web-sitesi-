@@ -21,10 +21,9 @@ namespace bitirmeMVC5.Controllers
         private readonly DoktorService _doktorService;
         private readonly HastaService _hastaService;
         private readonly AmeliyatTarihiService _ameliyatTarihiService;
+        private readonly ApplicationDbContext _context;
 
-
-
-        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService,AmeliyatTarihiService ameliyatTarihiService )
+        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService,AmeliyatTarihiService ameliyatTarihiService, ApplicationDbContext context)
         {
             _logger = logger;
             _poliklinikService = poliklinikService;
@@ -32,10 +31,10 @@ namespace bitirmeMVC5.Controllers
             _doktorService = doktorService;
             _hastaService = hastaService;
             _ameliyatTarihiService=ameliyatTarihiService;
+            _context = context;
+            
         }
-
-
-        // Doktor ekleme işlemini gerçekleştirir
+        //HASTA HESAP OLUŞTURMA KISMIDIR
         [HttpPost]
         public IActionResult HesapOluşturma(string fullname, string tckn, string email, string phone, string gender, string password, string confirm_password)
         {
@@ -79,14 +78,9 @@ namespace bitirmeMVC5.Controllers
             }
 
         }
+        //HASTA HESAP OLUŞTURMA KISMININ SONU
 
-
-
-
-
-
-
-
+        //AMELİYAT TARİHİ OLUŞTUR KIMIDIR
         [HttpPost]
         public IActionResult AmeliyatTarihi(string patientName, string patientID, DateTime surgeryDate, TimeSpan surgeryTime, string doctorName)
         {
@@ -114,110 +108,7 @@ namespace bitirmeMVC5.Controllers
                 return View("ameliyat_tarihi");
             }
         }
-
-
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Randevu()
-        {
-            return View();
-        }
-
-        public IActionResult RandevuAl()
-        {
-            return View("randevu_al");
-        }
-
-        public IActionResult RandevuIptal()
-        {
-            return View("randevu_iptal");
-        }
-
-        public IActionResult RandevularımaBak()
-        {
-            return View("randevularıma_bak");
-        }
-
-        public IActionResult ReçeteOluştur()
-        {
-            return View("reçete_oluştur");
-        }
-
-        public IActionResult SevkKaydıOluştur()
-        {
-            return View("sevk_kaydı_oluştur");
-        }
-
-        public IActionResult SifremiUnuttum()
-        {
-            return View();
-        }
-
-        public IActionResult AmeliyatTarihi()
-        {
-            return View("ameliyat_tarihi");
-        }
-
-        public IActionResult DoktorEkranı()
-        {
-            return View("doktor_ekranı");
-        }
-
-        public IActionResult DoktorGirişi()
-        {
-            return View("doktor_girişi");
-        }
-
-        public IActionResult Contact()
-        {
-            return View("contact");
-        }
-
-        public IActionResult HesapOluşturma()
-        {
-            return View("hesap_oluşturma");
-        }
-
-        public IActionResult Departments()
-        {
-            var poliklinikler = _poliklinikService.GetAllPoliklinikler();
-            return View(poliklinikler);
-        }
-
-        
-        public IActionResult Doctors()
-        {
-            var doktorlar = _doktorService.GetAllDoktorlar();
-            return View(doktorlar);
-        }
-        
-
-        public IActionResult HastaGirişi()
-        {
-            return View("hasta_girişi");
-        }
-
-
-
-        public IActionResult PersonelEkranı()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-
-
-
-        
+        //AMELİYAT TARİHİ OLUŞTURMA KISMININ SONU
 
         //POLİKLİNİKLERİ LİSTELE KISMI
         [HttpGet]
@@ -229,11 +120,10 @@ namespace bitirmeMVC5.Controllers
 
             return Json(poliklinikler);
         }
+
         //POLİKLİNİKLERİ LİSTELE KISMI SONU
 
-
         //DOKTOR GİRİŞİ KISMI
-
         [HttpPost]
         public IActionResult DoktorGirişi(string email, string password)
         {
@@ -250,13 +140,9 @@ namespace bitirmeMVC5.Controllers
                 return View("doktor_girişi");
             }
         }
-
         //DOKTOR GİRİŞİ KISMI SONU
 
-
-
         //HASTA GİRİŞİ KISMI
-
         [HttpPost]
         public IActionResult HastaGirişi(string tcKimlikNo, string password)
         {
@@ -270,17 +156,45 @@ namespace bitirmeMVC5.Controllers
                 return View("hasta_girişi");
             }
         }
-
         //HASTA GİRİŞİ KISMI
 
-        public IActionResult DoktorEkle()
+        //PERSONEL EKLE KISMIDIR
+        [HttpPost]
+        public IActionResult PersonelEkle(string fullname, string tckn, string email, string phone, string gender, string password, string confirm_password)
         {
-            var poliklinikler = _poliklinikService.GetAllPoliklinikler();
-            ViewBag.Poliklinikler = poliklinikler;
-            return View("doktor_ekle");
-        }
+            try
+            {
+                // Parola doğrulaması kontrolü
+                if (password != confirm_password)
+                {
+                    ViewBag.ErrorMessage = "Parolalar eşleşmiyor.";
+                    return View("personel_ekle");
+                }
 
-        // Doktor ekleme işlemini gerçekleştirir
+                // Personel nesnesini oluşturma ve ekleme işlemi
+                var personel = new Personel
+                {
+                    TamAd = fullname,
+                    TcKimlikNo = tckn,
+                    Eposta = email,
+                    TelefonNo = phone,
+                    Cinsiyet = gender,
+                    Parola = password // Parolanın hashlenmesini unutmayın
+                };
+
+                _personelService.AddPersonel(personel);
+                return RedirectToAction("Index"); // personel ekleme sonrası yönlendirme yapılacak sayfa
+            }
+            catch (Exception ex)
+            {
+                // Hata mesajını görüntüleme
+                ViewBag.ErrorMessage = "Kayıt işlemi sırasında bir hata oluştu: " + ex.Message;
+                return View("personel_ekle");
+            }
+        }
+        //PERSONEL EKLE KISMININ SONU
+
+        // DOKTOR EKLE KISMIDIR
         [HttpPost]
         public IActionResult DoktorEkle(string fullname, string tckn, string email, string phone, string gender, int poliklinikId, string password, string confirm_password)
         {
@@ -327,58 +241,9 @@ namespace bitirmeMVC5.Controllers
             }
 
         }
-
-        //PERSONEL EKLE KISMIDIR
-
-        public IActionResult PersonelEkle()
-        {
-            return View("personel_ekle");
-        }
-
-        [HttpPost]
-        public IActionResult PersonelEkle(string fullname, string tckn, string email, string phone, string gender, string password, string confirm_password)
-        {
-            try
-            {
-                // Parola doğrulaması kontrolü
-                if (password != confirm_password)
-                {
-                    ViewBag.ErrorMessage = "Parolalar eşleşmiyor.";
-                    return View("personel_ekle");
-                }
-
-                // Personel nesnesini oluşturma ve ekleme işlemi
-                var personel = new Personel
-                {
-                    TamAd = fullname,
-                    TcKimlikNo = tckn,
-                    Eposta = email,
-                    TelefonNo = phone,
-                    Cinsiyet = gender,
-                    Parola = password // Parolanın hashlenmesini unutmayın
-                };
-
-                _personelService.AddPersonel(personel);
-                return RedirectToAction("Index"); // personel ekleme sonrası yönlendirme yapılacak sayfa
-            }
-            catch (Exception ex)
-            {
-                // Hata mesajını görüntüleme
-                ViewBag.ErrorMessage = "Kayıt işlemi sırasında bir hata oluştu: " + ex.Message;
-                return View("personel_ekle");
-            }
-        }
-
-        //PERSONEL EKLE KISMININ SONU
-
+        //DOKTOR EKLE KISMININ SONU
 
         //PERSONEL GİRİŞİ KISMIDIR
-
-        public IActionResult PersonelGirişi()
-        {
-            return View("personel_girişi");
-        }
-
         [HttpPost]
         public IActionResult PersonelGirişi(string email, string password)
         {
@@ -394,25 +259,227 @@ namespace bitirmeMVC5.Controllers
                 return View("personel_girişi");
             }
         }
-
         //PERSONEL GİRİŞİ KISMI SONUDUR
 
 
         //POLİKLİNİK EKLE KISMIDIR
-
-        public IActionResult PoliklinikEkle()
-        {
-            return View("poliklinik_ekle");
-        }
-
         [HttpPost]
         public IActionResult PoliklinikEkle(string poliklinikAdi)
         {
             _poliklinikService.AddPoliklinik(poliklinikAdi);
             return RedirectToAction("Departments"); // veya istediğiniz başka bir sayfaya yönlendirme yapabilirsiniz
         }
-
         //POLİKLİNİK EKLE KISMI SONUDUR
+
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Randevu()
+        {
+            return View();
+        }
+
+        public IActionResult SifremiUnuttum()
+        {
+            return View();
+        }
+
+        public IActionResult PersonelEkranı()
+        {
+            return View();
+        }
+
+        public IActionResult PoliklinikEkle()
+        {
+            return View("poliklinik_ekle");
+        }
+
+        /*
+        public IActionResult RandevuAl()
+        {
+            return View("randevu_al");
+        }
+        */
+        public IActionResult RandevuIptal()
+        {
+            return View("randevu_iptal");
+        }
+
+        public IActionResult RandevularımaBak()
+        {
+            return View("randevularıma_bak");
+        }
+
+        public IActionResult ReçeteOluştur()
+        {
+            return View("reçete_oluştur");
+        }
+
+        public IActionResult SevkKaydıOluştur()
+        {
+            return View("sevk_kaydı_oluştur");
+        }        
+
+        public IActionResult AmeliyatTarihi()
+        {
+            return View("ameliyat_tarihi");
+        }
+
+        public IActionResult DoktorEkranı()
+        {
+            return View("doktor_ekranı");
+        }
+
+        public IActionResult DoktorGirişi()
+        {
+            return View("doktor_girişi");
+        }
+
+        public IActionResult Contact()
+        {
+            return View("contact");
+        }
+
+        public IActionResult HesapOluşturma()
+        {
+            return View("hesap_oluşturma");
+        }
+
+        public IActionResult HastaGirişi()
+        {
+            return View("hasta_girişi");
+        }
+
+        public IActionResult PersonelGirişi()
+        {
+            return View("personel_girişi");
+        }
+
+        public IActionResult PersonelEkle()
+        {
+            return View("personel_ekle");
+        }
+
+        public IActionResult DoktorEkle()
+        {
+            var poliklinikler = _poliklinikService.GetAllPoliklinikler();
+            ViewBag.Poliklinikler = poliklinikler;
+            return View("doktor_ekle");
+        }
+
+        public IActionResult Departments()
+        {
+            var poliklinikler = _poliklinikService.GetAllPoliklinikler();
+            return View(poliklinikler);
+        }
+        
+        public IActionResult Doctors()
+        {
+            var doktorlar = _doktorService.GetAllDoktorlar();
+            return View(doktorlar);
+        }
+       
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public async Task<IActionResult> RandevuAl()
+        {
+            var poliklinikler = await _poliklinikService.GetAllPolikliniklerAsync();
+            ViewBag.Poliklinikler = poliklinikler; // Verileri ViewBag ile görünüme taşıyoruz.
+
+            return View("randevu_al");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RandevuAl(string fullname, string tckn, string email, string phone, DateTime date, string time, int poliklinikId, int doktorId)
+        {
+            try
+            {
+                // 1. Model Doğrulama:
+                if (!ModelState.IsValid)
+                {
+                    // Model doğrulaması başarısız olursa, hata mesajlarını görünüme geri döndürün
+                    ViewBag.Poliklinikler = await _poliklinikService.GetAllPolikliniklerAsync();
+                    return View("randevu_al");
+                }
+
+                // 2. Randevu Çakışması Kontrolü (Opsiyonel):
+                // Aynı saatte ve tarihte başka bir randevu var mı kontrol edin.
+
+                // 3. Randevu Oluşturma:
+                var yeniRandevu = new Randevular
+                {
+                    TamAd = fullname,
+                    TcKimlikNo = tckn,
+                    Eposta = email,
+                    TelefonNo = phone,
+                    RandevuTarihi = date,
+                    RandevuSaati = TimeSpan.Parse(time), // string'i TimeSpan'e dönüştürün
+                    Poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId)?.PoliklinikAdi, // Seçilen polikliniğin adını alın
+                    DoktorTamAd = _doktorService.GetDoktorById(doktorId)?.TamAd  // Seçilen doktorun adını alın
+                                                                                 // Diğer gerekli alanları da doldurun
+                };
+
+                // 4. Veritabanına Kaydetme:
+                _context.Randevular.Add(yeniRandevu);
+                await _context.SaveChangesAsync();
+
+                // 5. Başarı Mesajı ve Yönlendirme:
+                TempData["SuccessMessage"] = "Randevunuz başarıyla oluşturuldu!"; // TempData kullanarak mesajı bir sonraki isteğe taşıyın.
+                return RedirectToAction("randevu_al"); // Kullanıcıyı randevu listesi gibi uygun bir sayfaya yönlendirin.
+            }
+            catch (Exception ex)
+            {
+                // 6. Hata Yönetimi:
+                _logger.LogError(ex, "Randevu alırken bir hata oluştu."); // Hatayı loglayın.
+                TempData["ErrorMessage"] = "Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
+                return RedirectToAction("RandevuAl");
+            }
+
+        }
+
+        [HttpGet]
+        public JsonResult GetDoktorlar(int poliklinikId)
+        {
+            try
+            {
+                var doktorlar = _doktorService.GetDoktorlarByPoliklinikId(poliklinikId);
+                return Json(doktorlar);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Doktorları getirirken hata oluştu.");
+                return Json(new { success = false, error = "Doktorları getirirken hata oluştu." });
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

@@ -57,10 +57,6 @@
       "PackagePath": "staticwebassets\\css\\style.scss"
     },
     {
-      "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\data\\hastaneler.json",
-      "PackagePath": "staticwebassets\\data\\hastaneler.json"
-    },
-    {
       "Id": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
     },

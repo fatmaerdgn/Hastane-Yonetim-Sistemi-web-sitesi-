@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const timeSelect = document.getElementById('time');
     const dateInput = document.getElementById('date');
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
 
-    document.getElementById('randevuForm').addEventListener('submit', function(event) {
+    document.getElementById('randevuForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
         const formData = new FormData(this);
@@ -40,9 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Simulate checking if the appointment slot is already taken
-        
         const existingAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-        const isSlotTaken = existingAppointments.some(appointment => 
+        const isSlotTaken = existingAppointments.some(appointment =>
             appointment.date === randevuData.date && appointment.time === randevuData.time
         );
 
@@ -54,6 +53,31 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Randevunuz başarıyla alındı!');
             this.reset();
         }
-        
     });
+
+    $(document).ready(function () {
+        $("#poliklinik").change(function () {
+            var poliklinikId = $(this).val();
+            $.ajax({
+                url: '@Url.Action("GetDoktorlar", "Home")', // Action metodunun URL'si
+                type: 'GET',
+                data: { poliklinikId: poliklinikId },
+                success: function (data) {
+                    var doktorSelect = $("#doctor"); // Doktor seçim listesi
+                    doktorSelect.empty(); // Önceki seçenekleri temizle
+                    doktorSelect.append($("<option value=''>Doktor Seçin</option>")); // Varsayılan seçenek
+                    $.each(data, function (index, doktor) {
+                        doktorSelect.append($("<option></option>")
+                            .attr("value", doktor.ID)
+                            .text(doktor.TamAd));
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Doktorları getirirken hata oluştu:", error);
+                    alert("Doktorları getirirken hata oluştu. Lütfen daha sonra tekrar deneyin.");
+                }
+            });
+        });
+    });
+
 });

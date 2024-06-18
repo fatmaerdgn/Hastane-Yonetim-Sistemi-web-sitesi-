@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/css/header.css">
     <link rel="stylesheet" href="~/css/randevu_al.css">
     <title>Randevu Al</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    
 </head>
 <body>
     <header class="header">
@@ -25,7 +28,7 @@
     <div class="container">
         <div class="randevu__content">
             <img src="~/images/hero-bg_2.png" alt="randevu image" class="randevu__img">
-            <form action="#" class="randevu__form" id="randevuForm">
+            <form action="DoktorEkle" class="randevu__form" id="randevuForm" method="post">
                 <div>
                     <h1 class="randevu__title">
                         <span>Randevu</span> Al
@@ -66,15 +69,23 @@
                     </div>
                     <div class="form-group">
                         <div class="form-item">
-                            <label for="department">Poliklinik:</label>
-                            <select class="randevu__input" id="department" name="department" required>
+                            <label for="poliklinik">Poliklinik:</label>
+                            <select class="randevu__input" id="poliklinik" name="poliklinik" required>
                                 <option value="" selected disabled>Poliklinik Seçin</option>
+                                @if (ViewBag.Poliklinikler != null)
+                                {
+                                    @foreach (var poliklinik in ViewBag.Poliklinikler)
+                                    {
+                                        <option value="@poliklinik.ID">@poliklinik.PoliklinikAdi</option>
+                                    }
+                                }
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="department">Doktor:</label>
-                            <select class="randevu__input" id="department" name="department" required>
+                            <label for="doktor">Doktor:</label>
+                            <select for="DoktorId" id="doctor" class="randevu__input" name="department">
                                 <option value="" selected disabled>Doktor Seçin</option>
+                                @* Doktor seçenekleri buraya gelecek *@
                             </select>
                         </div>
                     </div>
@@ -85,6 +96,7 @@
             </form>
         </div>
     </div>  
-   @*  <script src="~/js/randevu_al.js"></script> *@
+   <script src="~/js/randevu_al.js"></script>
+
 </body>
 </html>

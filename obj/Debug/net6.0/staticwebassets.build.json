@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x85GY0s3vyPrB8fFN3N5WIJsrKkxlyxQQdr01+JkLDQ=",
+  "Hash": "xq6o+utJSoJmJWX52YmThCdZm/dVUSNIrLL50QPGF0E=",
   "Source": "bitirmeMVC5",
   "BasePath": "_content/bitirmeMVC5",
   "Mode": "Default",
@@ -253,23 +253,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.scss"
-    },
-    {
-      "Identity": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\data\\hastaneler.json",
-      "SourceId": "bitirmeMVC5",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\",
-      "BasePath": "_content/bitirmeMVC5",
-      "RelativePath": "data/hastaneler.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\data\\hastaneler.json"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\OneDrive\\Belgeler\\GitHub\\hastane-web-sitesi\\wwwroot\\fonts\\fontawesome-webfont.ttf",

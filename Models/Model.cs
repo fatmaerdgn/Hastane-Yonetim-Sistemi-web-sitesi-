@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using bitirmeMVC5.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bitirmeMVC5.Models
@@ -13,6 +15,46 @@ namespace bitirmeMVC5.Models
         [StringLength(255)]
         [Display(Name = "Poliklinik Adı")]
         public string? PoliklinikAdi { get; set; }
+    }
+
+    public class Doktor
+    {
+        public int ID { get; set; }
+
+        [Required(ErrorMessage = "Tam ad alanı gereklidir.")]
+        [StringLength(100)]
+        [Display(Name = "Tam Ad")]
+        public string TamAd { get; set; }
+
+        [Required(ErrorMessage = "TC Kimlik No alanı gereklidir.")]
+        [StringLength(11)]
+        [RegularExpression(@"^\d{11}$", ErrorMessage = "Geçersiz TC Kimlik No.")]
+        [Display(Name = "TC Kimlik No")]
+        public string TcKimlikNo { get; set; }
+
+        [Required(ErrorMessage = "Eposta alanı gereklidir.")]
+        [StringLength(100)]
+        [EmailAddress(ErrorMessage = "Geçersiz eposta adresi.")]
+        [Display(Name = "E-posta")]
+        public string Eposta { get; set; }
+
+        [Required(ErrorMessage = "Telefon numarası alanı gereklidir.")]
+        [StringLength(15)]
+        [Display(Name = "Telefon No")]
+        public string TelefonNo { get; set; }
+
+        [Required(ErrorMessage = "Cinsiyet alanı gereklidir.")]
+        [StringLength(10)]
+        public string Cinsiyet { get; set; }
+
+        [Required(ErrorMessage = "Poliklinik alanı gereklidir.")]
+        [Display(Name = "Poliklinik ID")]
+        public int PoliklinikID { get; set; }
+
+        [Required(ErrorMessage = "Parola alanı gereklidir.")]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "Parola en az 6 karakter olmalıdır.")]
+        [Display(Name = "Parola")]
+        public string Parola { get; set; }
     }
 
     public class Personel
@@ -73,48 +115,6 @@ namespace bitirmeMVC5.Models
         public string Parola { get; set; }
     }
 
-    public class Doktor
-    {
-        public int ID { get; set; }
-
-        [Required(ErrorMessage = "Tam ad alanı gereklidir.")]
-        [StringLength(100)]
-        [Display(Name = "Tam Ad")]
-        public string TamAd { get; set; }
-
-        [Required(ErrorMessage = "TC Kimlik No alanı gereklidir.")]
-        [StringLength(11)]
-        [RegularExpression(@"^\d{11}$", ErrorMessage = "Geçersiz TC Kimlik No.")]
-        [Display(Name = "TC Kimlik No")]
-        public string TcKimlikNo { get; set; }
-
-        [Required(ErrorMessage = "Eposta alanı gereklidir.")]
-        [StringLength(100)]
-        [EmailAddress(ErrorMessage = "Geçersiz eposta adresi.")]
-        [Display(Name = "E-posta")]
-        public string Eposta { get; set; }
-
-        [Required(ErrorMessage = "Telefon numarası alanı gereklidir.")]
-        [StringLength(15)]
-        [Display(Name = "Telefon No")]
-        public string TelefonNo { get; set; }
-
-        [Required(ErrorMessage = "Cinsiyet alanı gereklidir.")]
-        [StringLength(10)]
-        public string Cinsiyet { get; set; }
-
-        [Required(ErrorMessage = "Poliklinik alanı gereklidir.")]
-        [Display(Name = "Poliklinik ID")]
-        public int PoliklinikID { get; set; }
-
-        [Required(ErrorMessage = "Parola alanı gereklidir.")]
-        [StringLength(50, MinimumLength = 6, ErrorMessage = "Parola en az 6 karakter olmalıdır.")]
-        [Display(Name = "Parola")]
-        public string Parola { get; set; }
-
-
-    }
-
     public class Ameliyat
     {
         public int ID { get; set; } // Anahtar alanı
@@ -136,4 +136,17 @@ namespace bitirmeMVC5.Models
         public string DoktorTamAd { get; set; }
     }
 
+    public class Randevular
+    {
+        public int ID { get; set; }
+        public string TamAd { get; set; }
+        public string TcKimlikNo { get; set; }
+        public string Eposta { get; set; }
+        public string TelefonNo { get; set; }
+        public DateTime RandevuTarihi { get; set; }
+        public TimeSpan RandevuSaati { get; set; }
+        public string Poliklinik { get; set; }
+        public string DoktorTamAd { get; set; }
+        // Diğer gerekli özellikleri ekleyin...
+    }
 }

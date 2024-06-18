@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using bitirmeMVC5.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace bitirmeMVC5.Services
 {
@@ -15,8 +17,6 @@ namespace bitirmeMVC5.Services
         {
             _context = context;
         }
-
-
 
         // Veritabanına yeni bir doktor ekler
         public void AddDoktor(Doktor doktor)
@@ -60,6 +60,11 @@ namespace bitirmeMVC5.Services
         {
             var doktor = _context.Doktorlar.FirstOrDefault(d => d.Eposta == email && d.Parola == password);
             return doktor; // Eğer doktor varsa, doktor nesnesini döndür, yoksa null döner
+        }
+
+        public List<Doktor> GetDoktorlarByPoliklinikId(int poliklinikId)
+        {
+            return _context.Doktorlar.Where(d => d.PoliklinikID == poliklinikId).ToList();
         }
     }
 }
