@@ -407,13 +407,21 @@ namespace bitirmeMVC5.Controllers
                 {
                     // Model doğrulaması başarısız olursa, hata mesajlarını görünüme geri döndürün
                     ViewBag.Poliklinikler = await _poliklinikService.GetAllPolikliniklerAsync();
-                    return View("randevu_al");
+                    //return View("randevu_al");
+
+                    var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                          .Select(e => e.ErrorMessage)
+                                          .ToList();
+                    return Json(new { success = false, message = string.Join("\n", errors) });
                 }
+
+
 
                 // 2. Randevu Çakışması Kontrolü (Opsiyonel):
                 // Aynı saatte ve tarihte başka bir randevu var mı kontrol edin.
 
                 // 3. Randevu Oluşturma:
+             
                 var yeniRandevu = new Randevular
                 {
                     TamAd = fullname,
@@ -421,45 +429,52 @@ namespace bitirmeMVC5.Controllers
                     Eposta = email,
                     TelefonNo = phone,
                     RandevuTarihi = date,
-                    RandevuSaati = TimeSpan.Parse(time), // string'i TimeSpan'e dönüştürün
-                    Poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId)?.PoliklinikAdi, // Seçilen polikliniğin adını alın
-                    DoktorTamAd = _doktorService.GetDoktorById(doktorId)?.TamAd  // Seçilen doktorun adını alın
-                                                                                 // Diğer gerekli alanları da doldurun
+                    RandevuSaati = TimeSpan.Parse(time),
+                    Poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId)?.PoliklinikAdi,
+
+                    DoktorTamAd = _doktorService.GetDoktorById(doktorId)?.TamAd
                 };
+
+                var poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId);
+
+                if (poliklinik != null)
+                {
+                    yeniRandevu.Poliklinik = poliklinik.PoliklinikAdi;
+                }
+                else
+                {
+                    // Poliklinik bulunamadı, hata mesajı döndürün veya farklı bir işlem yapın.
+                    return Json(new { success = false, message = "Geçersiz poliklinik seçimi." });
+                }
 
                 // 4. Veritabanına Kaydetme:
                 _context.Randevular.Add(yeniRandevu);
                 await _context.SaveChangesAsync();
 
-                // 5. Başarı Mesajı ve Yönlendirme:
-                TempData["SuccessMessage"] = "Randevunuz başarıyla oluşturuldu!"; // TempData kullanarak mesajı bir sonraki isteğe taşıyın.
-                return RedirectToAction("randevu_al"); // Kullanıcıyı randevu listesi gibi uygun bir sayfaya yönlendirin.
+
+                return Json(new { success = true, message = "Randevunuz başarıyla oluşturuldu!" });
             }
             catch (Exception ex)
             {
                 // 6. Hata Yönetimi:
-                _logger.LogError(ex, "Randevu alırken bir hata oluştu."); // Hatayı loglayın.
-                TempData["ErrorMessage"] = "Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
-                return RedirectToAction("RandevuAl");
+                _logger.LogError(ex, "Randevu alırken bir hata oluştu.");
+                return Json(new { success = false, message = "Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin." });
             }
 
+        }
+
+        public async Task<IActionResult> RandevulariListele()
+        {
+            var randevular = await _context.Randevular.ToListAsync();
+            return View("randevu_iptal", randevular);
         }
 
         [HttpGet]
         public JsonResult GetDoktorlar(int poliklinikId)
         {
-            try
-            {
-                var doktorlar = _doktorService.GetDoktorlarByPoliklinikId(poliklinikId);
-                return Json(doktorlar);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Doktorları getirirken hata oluştu.");
-                return Json(new { success = false, error = "Doktorları getirirken hata oluştu." });
-            }
+            var doktorlar = _doktorService.GetDoktorlarByPoliklinikId(poliklinikId);
+            return Json(doktorlar);
         }
-
 
 
 

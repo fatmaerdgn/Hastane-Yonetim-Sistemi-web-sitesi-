@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // ... (Zaman seçenekleri ve bugünün tarihini ayarlama) ...
     const timeSelect = document.getElementById('time');
     const dateInput = document.getElementById('date');
 
@@ -26,58 +27,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
 
+
     document.getElementById('randevuForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Formun varsayılan davranışını engelle
 
-        const formData = new FormData(this);
-        const randevuData = {
-            fullname: formData.get('fullname'),
-            tckn: formData.get('tckn'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            date: formData.get('date'),
-            time: formData.get('time')
-        };
+        var formData = new FormData(this); // Form verilerini al
 
-        // Simulate checking if the appointment slot is already taken
-        const existingAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-        const isSlotTaken = existingAppointments.some(appointment =>
-            appointment.date === randevuData.date && appointment.time === randevuData.time
-        );
-
-        if (isSlotTaken) {
-            alert('Seçilen randevu zamanı zaten alınmış. Lütfen başka bir zaman seçin.');
-        } else {
-            existingAppointments.push(randevuData);
-            localStorage.setItem('appointments', JSON.stringify(existingAppointments));
-            alert('Randevunuz başarıyla alındı!');
-            this.reset();
-        }
-    });
-
-    $(document).ready(function () {
-        $("#poliklinik").change(function () {
-            var poliklinikId = $(this).val();
-            $.ajax({
-                url: '@Url.Action("GetDoktorlar", "Home")', // Action metodunun URL'si
-                type: 'GET',
-                data: { poliklinikId: poliklinikId },
-                success: function (data) {
-                    var doktorSelect = $("#doctor"); // Doktor seçim listesi
-                    doktorSelect.empty(); // Önceki seçenekleri temizle
-                    doktorSelect.append($("<option value=''>Doktor Seçin</option>")); // Varsayılan seçenek
-                    $.each(data, function (index, doktor) {
-                        doktorSelect.append($("<option></option>")
-                            .attr("value", doktor.ID)
-                            .text(doktor.TamAd));
-                    });
-                },
-                error: function (xhr, status, error) {
-                    console.error("Doktorları getirirken hata oluştu:", error);
-                    alert("Doktorları getirirken hata oluştu. Lütfen daha sonra tekrar deneyin.");
+        $.ajax({
+            url: '/Home/RandevuAl', // RandevuAl action metodunun URL'si
+            type: 'POST',
+            data: formData,
+            processData: false,  // FormData için gerekli ayarlar
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    alert('Randevunuz başarıyla alındı!');
+                    this.reset(); // Formu temizle
+                } else {
+                    alert(response.message); // Hata mesajını göster
                 }
-            });
+            },
+            error: function (xhr, status, error) {
+                console.error("Randevu alırken hata oluştu:", error);
+                alert("Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
+            }
         });
     });
-
 });

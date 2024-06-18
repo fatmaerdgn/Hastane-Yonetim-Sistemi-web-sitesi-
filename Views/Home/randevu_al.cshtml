@@ -24,11 +24,11 @@
                 </ul>
             </nav>
         </div>
-    </header>
+    </header>  
     <div class="container">
         <div class="randevu__content">
             <img src="~/images/hero-bg_2.png" alt="randevu image" class="randevu__img">
-            <form action="DoktorEkle" class="randevu__form" id="randevuForm" method="post">
+            <form class ="randevu__form" id="randevuForm" method="post">
                 <div>
                     <h1 class="randevu__title">
                         <span>Randevu</span> Al
@@ -82,13 +82,14 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="doktor">Doktor:</label>
-                            <select for="DoktorId" id="doctor" class="randevu__input" name="department">
+                            <label for="doctor">Doktor:</label>
+                            <<select id="doctor" class="randevu__input" name="doktorId" style="background-color: white; color: black; opacity: 1 !important;">
                                 <option value="" selected disabled>Doktor Seçin</option>
                                 @* Doktor seçenekleri buraya gelecek *@
                             </select>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="randevu__buttons">
                     <button class="randevu__button" type="submit">Randevu Al</button>
@@ -97,6 +98,36 @@
         </div>
     </div>  
    <script src="~/js/randevu_al.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#poliklinik").change(function () {
+                var poliklinikId = $(this).val();
+
+                $.ajax({
+                    url: '/Home/GetDoktorlar?poliklinikId=' + poliklinikId,
+                    type: 'GET',
+                    success: function (data) {
+                        
+                        var doktorSelect = $("#doctor");
+                        doktorSelect.empty();
+                        doktorSelect.append($("<option value=''>Doktor Seçin</option>"));
+                        $.each(data, function (index, doktor) {
+                            doktorSelect.append($("<option></option>")
+                                .attr("value", doktor.id)
+                                .text(doktor.tamAd));
+                        });
+                        
+                        //alert(JSON.stringify(data));
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Doktorları getirirken hata oluştu:", error);
+                        alert("Doktorları getirirken hata oluştu. Lütfen daha sonra tekrar deneyin.");
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

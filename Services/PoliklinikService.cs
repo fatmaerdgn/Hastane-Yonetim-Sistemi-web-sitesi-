@@ -48,6 +48,7 @@ namespace bitirmeMVC5.Services
         {
             return await _context.Poliklinikler.ToListAsync();
         }
+
         public Poliklinik GetPoliklinikById(int poliklinikId)
         {
             return _context.Poliklinikler.FirstOrDefault(p => p.ID == poliklinikId);

@@ -147,6 +147,5 @@ namespace bitirmeMVC5.Models
         public TimeSpan RandevuSaati { get; set; }
         public string Poliklinik { get; set; }
         public string DoktorTamAd { get; set; }
-        // Diğer gerekli özellikleri ekleyin...
     }
 }
