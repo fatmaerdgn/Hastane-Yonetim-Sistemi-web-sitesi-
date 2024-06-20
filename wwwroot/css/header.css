@@ -58,3 +58,8 @@
 .container {
     margin-top: 80px;
 }
+
+:root {
+    --font-semi-bold: 600;
+    --font-medium: 500;
+}

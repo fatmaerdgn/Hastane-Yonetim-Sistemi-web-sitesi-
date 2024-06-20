@@ -15,8 +15,10 @@ namespace bitirmeMVC5.Models
         public DbSet<Personel> Personeller { get; set; }
         public DbSet<Doktor> Doktorlar { get; set; }
         public DbSet<Hasta> Hasta { get; set; }
-        public DbSet<Ameliyat> Ameliyatlar { get; set; } // AmeliyatModel için DbSet
+        public DbSet<Ameliyat> Ameliyatlar { get; set; } 
         public DbSet<Randevular> Randevular { get; set; }
+        public DbSet<Aboneler> Aboneler { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

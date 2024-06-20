@@ -138,14 +138,22 @@ namespace bitirmeMVC5.Models
 
     public class Randevular
     {
-        public int ID { get; set; }
-        public string TamAd { get; set; }
-        public string TcKimlikNo { get; set; }
-        public string Eposta { get; set; }
-        public string TelefonNo { get; set; }
-        public DateTime RandevuTarihi { get; set; }
-        public TimeSpan RandevuSaati { get; set; }
-        public string Poliklinik { get; set; }
-        public string DoktorTamAd { get; set; }
+        public int? ID { get; set; }
+        public string? TamAd { get; set; }
+        public string? TcKimlikNo { get; set; }
+        public string? Eposta { get; set; }
+        public string? TelefonNo { get; set; }
+        public DateTime? RandevuTarihi { get; set; }
+        public TimeSpan? RandevuSaati { get; set; }
+        public string? Poliklinik { get; set; }
+        public string? DoktorTamAd { get; set; }
     }
+
+    public class Aboneler
+    {
+        public int ID { get; set; }
+        public string MailAdresi { get; set; }
+        public DateTime KayitTarihi { get; set; }
+    }
+
 }

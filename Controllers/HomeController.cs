@@ -3,6 +3,7 @@ using bitirmeMVC5.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Net.Mail;
 
 namespace bitirmeMVC5.Controllers
 {
@@ -14,9 +15,12 @@ namespace bitirmeMVC5.Controllers
         private readonly DoktorService _doktorService;
         private readonly HastaService _hastaService;
         private readonly AmeliyatTarihiService _ameliyatTarihiService;
+        private readonly RandevuService _randevuService;
+        private readonly AboneService _aboneService;
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService, AmeliyatTarihiService ameliyatTarihiService, ApplicationDbContext context)
+
+        public HomeController(ILogger<HomeController> logger, PoliklinikService poliklinikService, PersonelService personelService, DoktorService doktorService, HastaService hastaService, AmeliyatTarihiService ameliyatTarihiService, ApplicationDbContext context, RandevuService randevuService, AboneService aboneService)
         {
             _logger = logger;
             _poliklinikService = poliklinikService;
@@ -25,6 +29,8 @@ namespace bitirmeMVC5.Controllers
             _hastaService = hastaService;
             _ameliyatTarihiService = ameliyatTarihiService;
             _context = context;
+            _randevuService = randevuService;
+            _aboneService = aboneService;
 
         }
         //HASTA HESAP OLUŞTURMA KISMIDIR
@@ -103,18 +109,14 @@ namespace bitirmeMVC5.Controllers
         }
         //AMELİYAT TARİHİ OLUŞTURMA KISMININ SONU
 
-        //POLİKLİNİKLERİ LİSTELE KISMI
-        [HttpGet]
-        public JsonResult GetPoliklinikler()
+        //POLİKLİNİK EKLE KISMIDIR
+        [HttpPost]
+        public IActionResult PoliklinikEkle(string poliklinikAdi)
         {
-            var poliklinikler = _poliklinikService.GetAllPoliklinikler()
-                .Select(p => new { id = p.ID, name = p.PoliklinikAdi })
-                .ToList();
-
-            return Json(poliklinikler);
+            _poliklinikService.AddPoliklinik(poliklinikAdi);
+            return RedirectToAction("Departments"); // veya istediğiniz başka bir sayfaya yönlendirme yapabilirsiniz
         }
-
-        //POLİKLİNİKLERİ LİSTELE KISMI SONU
+        //POLİKLİNİK EKLE KISMI SONUDUR
 
         //DOKTOR GİRİŞİ KISMI
         [HttpPost]
@@ -255,15 +257,7 @@ namespace bitirmeMVC5.Controllers
         //PERSONEL GİRİŞİ KISMI SONUDUR
 
 
-        //POLİKLİNİK EKLE KISMIDIR
-        [HttpPost]
-        public IActionResult PoliklinikEkle(string poliklinikAdi)
-        {
-            _poliklinikService.AddPoliklinik(poliklinikAdi);
-            return RedirectToAction("Departments"); // veya istediğiniz başka bir sayfaya yönlendirme yapabilirsiniz
-        }
-        //POLİKLİNİK EKLE KISMI SONUDUR
-
+        
 
         public IActionResult Index()
         {
@@ -288,18 +282,7 @@ namespace bitirmeMVC5.Controllers
         public IActionResult PoliklinikEkle()
         {
             return View("poliklinik_ekle");
-        }
-
-        /*
-        public IActionResult RandevuAl()
-        {
-            return View("randevu_al");
-        }
-        */
-        public IActionResult RandevuIptal()
-        {
-            return View("randevu_iptal");
-        }
+        }      
 
         public IActionResult RandevularımaBak()
         {
@@ -356,6 +339,11 @@ namespace bitirmeMVC5.Controllers
             return View("personel_ekle");
         }
 
+        public IActionResult RandevuListesi()
+        {
+            return View("_RandevuListesi");
+        }
+
         public IActionResult DoktorEkle()
         {
             var poliklinikler = _poliklinikService.GetAllPoliklinikler();
@@ -391,6 +379,7 @@ namespace bitirmeMVC5.Controllers
         }
         
 
+        // RANDEVU AL KISMI
         [HttpPost]
         public async Task<IActionResult> RandevuAl(string fullname, string tckn, string email, string phone, DateTime date, string time, int poliklinikId, int doktorId)
         {
@@ -411,8 +400,26 @@ namespace bitirmeMVC5.Controllers
 
 
 
-                // 2. Randevu Çakışması Kontrolü (Opsiyonel):
-                // Aynı saatte ve tarihte başka bir randevu var mı kontrol edin.
+                // 2. Randevu Çakışması Kontrolü:
+                var doktor = _doktorService.GetDoktorById(doktorId);
+
+                if (doktor != null) // Doktoru kontrol edin
+                {
+                    var existingAppointment = await _context.Randevular.FirstOrDefaultAsync(r =>
+                        r.DoktorTamAd == doktor.TamAd &&
+                        r.RandevuTarihi == date &&
+                        r.RandevuSaati == TimeSpan.Parse(time)
+                    );
+
+                    if (existingAppointment != null)
+                    {
+                        return Json(new { success = false, message = "Seçtiğiniz tarih ve saatte doktor müsait değil." });
+                    }
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Geçersiz doktor seçimi." });
+                }
 
                 // 3. Randevu Oluşturma:
 
@@ -428,29 +435,16 @@ namespace bitirmeMVC5.Controllers
 
                     DoktorTamAd = _doktorService.GetDoktorById(doktorId)?.TamAd
                 };
-                /*
 
-                var poliklinik = _poliklinikService.GetPoliklinikById(poliklinikId);
-
-                if (poliklinik != null)
-                {
-                    yeniRandevu.Poliklinik = poliklinik.PoliklinikAdi;
-                }
-                else
-                {
-                    // Poliklinik bulunamadı, hata mesajı döndürün veya farklı bir işlem yapın.
-                    return Json(new { success = false, message = "Geçersiz poliklinik seçimi." });
-                }
-                */
+                
 
                 // 4. Veritabanına Kaydetme:
                 _context.Randevular.Add(yeniRandevu);
                 await _context.SaveChangesAsync();
 
-
-                return Json(new { success = true, message = "Randevunuz başarıyla oluşturuldu!"});
-                //return RedirectToAction("RandevulariListele");
-                //return Json("RandevulariListele");
+                TempData["SuccessMessage"] = "Randevunuz başarıyla oluşturuldu!";
+                //return RedirectToAction("RandevulariListele"); // <--- Yönlendirme
+                return Json(new { success = true, message = "Randevunuz başarıyla oluşturuldu! Randevu iptali için telefon numaramızdan bize ulaşın!"});
 
 
             }
@@ -458,26 +452,42 @@ namespace bitirmeMVC5.Controllers
             {
                 // 6. Hata Yönetimi:
                 _logger.LogError(ex, "Randevu alırken bir hata oluştu.");
-                return Json(new { success = false, message = "Randevu alırken bir hata oluştu. Lütfen daha sonra tekrar deneyin." });
+                return Json(new { success = false, message = "Daha önce alınmış bir randevuyu aldınız. Lütfen başka bir hekim, tarih veya saati tercih edin." });
                 
             }
 
         }
+        // RANDEVU AL KISMI SONU
 
+        //RANDEVULARI LİSTELE KISMI
         [HttpGet]
-        public async Task<IActionResult> RandevulariListele()
+        public IActionResult RandevuIptal()
         {
-            var randevular = await _context.Randevular.ToListAsync();
-            return View("randevu_iptal", randevular);
+            var randevular = _randevuService.GetAllRandevular();
+            return View("randevularim",randevular);
         }
+        [HttpGet]
+        public JsonResult GetRandevular()
+        {
+            var randevular = _randevuService.GetAllRandevular()
+                .Select(r => new { id = r.ID, name = r.TamAd, dAdi = r.DoktorTamAd, saat = r.RandevuSaati })
+                .ToList();
+            return Json(randevular);
+        }
+        //RANDEVULARI LİSTELE KISMI SONU
+        
+        //POLİKLİNİKLERİ LİSTELE KISMI
+        [HttpGet]
+        public JsonResult GetPoliklinikler()
+        {
+            var poliklinikler = _poliklinikService.GetAllPoliklinikler()
+                .Select(p => new { id = p.ID, name = p.PoliklinikAdi })
+                .ToList();
 
-        /*
-        public async Task<IActionResult> RandevulariListele()
-        {
-            var randevular =  _context.Randevular.ToListAsync();
-            return View("randevu_iptal", randevular);
+            return Json(poliklinikler);
         }
-        */
+        //POLİKLİNİKLERİ LİSTELE KISMI SONU
+
 
         [HttpGet]
         public JsonResult GetDoktorlar(int poliklinikId)
@@ -487,24 +497,19 @@ namespace bitirmeMVC5.Controllers
         }
 
 
+        //ABONE OL KISMI
+        [HttpPost]
+        public IActionResult Aboneler(string email)
+        {
+            var abone = new Aboneler();
+            abone.MailAdresi = email;
 
+            _aboneService.AddAbone(abone); // Abone servisine abone nesnesini ekliyoruz.
 
+            TempData["AboneUyarisi"] = "Abonelik işlemi başarıyla tamamlandı.";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            return View("Index");
+        }
+        // ABONE OL KISMI SONU
     }
 }

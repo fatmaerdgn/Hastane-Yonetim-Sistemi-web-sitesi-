@@ -20,7 +20,9 @@ builder.Services.AddScoped<PersonelService>();
 builder.Services.AddScoped<PoliklinikService>();
 builder.Services.AddScoped<HastaService>();
 builder.Services.AddScoped<AmeliyatTarihiService>();
-
+builder.Services.AddScoped<RandevuService>();
+builder.Services.AddScoped<AboneService>();
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
