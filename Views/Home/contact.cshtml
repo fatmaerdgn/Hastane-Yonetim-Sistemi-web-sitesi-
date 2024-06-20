@@ -200,11 +200,17 @@
                 </div>
                 <div class="col-md-6 col-lg-3 footer_col">
                     <h4>Bülten</h4>
-                    <form action="#">
-                        <input type="email" placeholder="e posta adresiniz" />
-                        <button type="submit">
-                            Abone ol
-                        </button>
+                    <form action="/Home/Aboneler" method="post">
+                        <input type="email" id="email" name="email" placeholder="E-posta adresiniz" />
+                        <button type="submit">Abone ol</button>
+                        <br>
+                        <br>
+                        @if (TempData["AboneUyarisi"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["AboneUyarisi"]
+                            </div>
+                        }
                     </form>
                 </div>
                 <div class="footer-info">
@@ -212,13 +218,14 @@
                         &copy; <span id="displayYear"></span> Tüm hakları
                         <a href="https://www.linkedin.com/in/fatma-erdogan/">MediProCare Sağlık Yatırımları A.Ş </a>
                         <span id="displayYear"></span> tarafından saklıdır.
-                        <br><br></a>
+                        <br><br>
                         &copy;
                         <a href="https://github.com/fatmaerdogan4444">Soft4U Ltd. Şti. </a>
                         <span id="displayYear"></span> tarafından dağıtılmıştır.
                     </p>
                 </div>
             </div>
+        </div>
     </footer>
     <!-- footer section -->
         

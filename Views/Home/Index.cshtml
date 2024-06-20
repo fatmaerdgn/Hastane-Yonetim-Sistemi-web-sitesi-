@@ -30,16 +30,21 @@
     <link href="~/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="~/css/responsive.css" rel="stylesheet" />
-
   </head>
   
   <body>
-  
+    <div id="alert-container" class="alert" style="display: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+        <span id="alert-text"></span>
+    </div>
+
     <div class="hero_area">
   
       <div class="hero_bg_box">
             <img src="~/images/hero-bg.png" alt="">
       </div>
+        <div id="alert-container" class="alert alert-success" style="display: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+            <span id="alert-text"></span>
+        </div>
   
       <!-- header section strats -->
       <header class="header_section">
@@ -215,9 +220,17 @@
           </div>                         
             <div class="col-md-6 col-lg-3 footer_col">
                     <h4>Bülten</h4>
-                    <form action="/Home/Index" method="post">
+                    <form action="/Home/Aboneler" method="post">
                         <input type="email" id="email" name="email" placeholder="E-posta adresiniz" />
                         <button type="submit">Abone ol</button>
+                        <br>
+                        <br>
+                        @if (TempData["AboneUyarisi"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["AboneUyarisi"]
+                            </div>
+                        }
                     </form>
             </div>                                   
         <div class="footer-info">
@@ -225,7 +238,7 @@
             &copy; <span id="displayYear"></span> Tüm hakları
                     <a href="https://www.linkedin.com/in/fatma-erdogan/">MediProCare Sağlık Yatırımları A.Ş </a>
             <span id="displayYear"></span> tarafından saklıdır.
-            <br><br></a>
+            <br><br>
             &copy;
                     <a href="https://github.com/fatmaerdogan4444">Soft4U Ltd. Şti. </a>
               <span id="displayYear"></span> tarafından dağıtılmıştır.           
@@ -252,7 +265,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
-  
+
+
   </body>
   
 </html>

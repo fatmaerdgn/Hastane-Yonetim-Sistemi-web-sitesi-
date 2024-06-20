@@ -497,19 +497,33 @@ namespace bitirmeMVC5.Controllers
         }
 
 
-        //ABONE OL KISMI
+        // ABONE OL KISMI
         [HttpPost]
         public IActionResult Aboneler(string email)
         {
-            var abone = new Aboneler();
-            abone.MailAdresi = email;
+            try
+            {
+                // E-posta adresi zaten kayıtlı mı kontrol edin
+                if (_context.Aboneler.Any(a => a.MailAdresi == email))
+                {
+                    return Json(new { message = "Bu e-posta adresi zaten kayıtlı." });
+                }
 
-            _aboneService.AddAbone(abone); // Abone servisine abone nesnesini ekliyoruz.
+                var abone = new Aboneler();
+                abone.MailAdresi = email;
 
-            TempData["AboneUyarisi"] = "Abonelik işlemi başarıyla tamamlandı.";
+                _aboneService.AddAbone(abone);
 
+                TempData["AboneUyarisi"] = "Kaydınız yapıldı!";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Bir hata oluştu.");
+                return Json(new { message = "Bir hata oluştu." });
+            }
             return View("Index");
         }
         // ABONE OL KISMI SONU
+
     }
 }

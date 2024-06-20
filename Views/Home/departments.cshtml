@@ -178,11 +178,17 @@
                 </div>
                 <div class="col-md-6 col-lg-3 footer_col">
                     <h4>Bülten</h4>
-                    <form action="#">
-                        <input type="email" placeholder="e posta adresiniz" />
-                        <button type="submit">
-                            Abone ol
-                        </button>
+                    <form action="/Home/Aboneler" method="post">
+                        <input type="email" id="email" name="email" placeholder="E-posta adresiniz" />
+                        <button type="submit">Abone ol</button>
+                        <br>
+                        <br>
+                        @if (TempData["AboneUyarisi"] != null)
+                        {
+                            <div class="alert alert-success">
+                                @TempData["AboneUyarisi"]
+                            </div>
+                        }
                     </form>
                 </div>
                 <div class="footer-info">

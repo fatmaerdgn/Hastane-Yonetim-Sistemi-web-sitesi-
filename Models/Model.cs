@@ -151,9 +151,14 @@ namespace bitirmeMVC5.Models
 
     public class Aboneler
     {
+        [Key] // ID'nin birincil anahtar olduğunu belirtir
         public int ID { get; set; }
+
+        [Required] // Alanın zorunlu olduğunu belirtir
+        [MaxLength(255)] // Alanın maksimum uzunluğu
         public string MailAdresi { get; set; }
-        public DateTime KayitTarihi { get; set; }
+
+        public DateTime KayitTarihi { get; set; } = DateTime.Now; // Kayıt tarihini otomatik olarak ayarlar
     }
 
 }

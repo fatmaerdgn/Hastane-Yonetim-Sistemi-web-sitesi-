@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using bitirmeMVC5.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace bitirmeMVC5.Services
@@ -16,10 +15,10 @@ namespace bitirmeMVC5.Services
             _context = context;
         }
 
-        public void AddAbone(Aboneler MailAdresi)
+        public void AddAbone(Aboneler abone)
         {
-            _context.Aboneler.Add(MailAdresi);
-            _context.SaveChanges();
+            _context.Aboneler.Add(abone); // Abone nesnesini veritabanına ekler
+            _context.SaveChanges(); // Değişiklikleri kaydeder
         }
     }
 }
