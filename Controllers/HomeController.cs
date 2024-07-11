@@ -398,8 +398,6 @@ namespace bitirmeMVC5.Controllers
                     return Json(new { success = false, message = string.Join("\n", errors) });
                 }
 
-
-
                 // 2. Randevu Çakışması Kontrolü:
                 var doktor = _doktorService.GetDoktorById(doktorId);
 
