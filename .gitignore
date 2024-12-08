@@ -1,0 +1,10 @@
+# Visual Studio klasörleri
+.vs/
+
+# Derleme dosyaları
+bin/
+obj/
+
+# Geçici dosyalar
+*.log
+*.tmp
