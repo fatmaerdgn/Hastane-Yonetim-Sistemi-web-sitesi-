@@ -30,7 +30,6 @@ Bu proje, kullanıcı dostu bir arayüz ile hastane yönetimini kolaylaştırmak
 Aşağıda, projemizle ilgili web sitesinin ana sayfa görüntüsünü bulabilirsiniz. Bu sayfa, kullanıcıların kolayca erişebileceği, navigasyonun basit ve anlaşılır olduğu bir arayüze sahiptir.
 
 ![Web Site Ana Sayfa](./image/anasayfa1.png)
-![Web Site Ana Sayfa](./image/anasayfa2.png)
 
 Web sitesinin ana sayfası, kullanıcı dostu bir tasarım ile tüm kullanıcı gruplarına hitap edecek şekilde tasarlanmıştır. Ana sayfada, hastaların randevu alabileceği, doktorların ve personelin erişebileceği hizmetlere dair bağlantılar ve güncel haber bülteni gibi özellikler bulunmaktadır.
 
